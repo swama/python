@@ -10,3 +10,13 @@ def cut_word(word,method='bottom'):
         return topsalary
     else:
         return bottomsalary
+
+#某列中的每行包含多个数据，对其拆分后生成一个列表，计算唯一值
+new = df_clean.positionLables.str[1:-1].dropna().replace(' ','')
+new1 = new.replace("'","")
+all_position = []
+for x in new1:
+    all_position.extend(x.split(','))
+position = pd.unique(all_position)
+position1 = pd.Series(all_position)
+pic = position1.value_counts()
