@@ -10,6 +10,8 @@ def cut_word(word,method='bottom'):
         return topsalary
     else:
         return bottomsalary
+df_duplicates['bottomSalary'] = df_duplicates.salary.apply(cut_word,method='bottom').astype(int)
+df_duplicates['topSalary'] = df_duplicates.salary.apply(cut_word,method='top').astype('int')
 
 #某列中的每行包含多个数据，对其拆分后生成一个列表，计算唯一值
 new = df_clean.positionLables.str[1:-1].dropna().replace(' ','')
