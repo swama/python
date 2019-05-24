@@ -1,0 +1,12 @@
+#提取某列每行中的数字，例如最低工资和最高工资：
+import re
+def cut_word(word,method='bottom'):
+    try:
+        bottomsalary = re.findall(r'\d+',word)[0]
+        topsalary = re.findall(r'\d+',word)[1]
+    except:
+        topsalary = bottomsalary
+    if method == 'top':
+        return topsalary
+    else:
+        return bottomsalary
